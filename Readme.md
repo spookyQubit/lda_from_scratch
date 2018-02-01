@@ -5,4 +5,4 @@ The major challenge in implementing the model was in trying to rederive the cond
 
 ![](./images/topics_v_dist.png =100x20)
 
-
+img = <src="https://github.com/spookyQubit/lda_from_scratch/blob/master/images/topics_v_dist.png" width="200" height="200" />
