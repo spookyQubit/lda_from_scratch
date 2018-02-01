@@ -1,6 +1,5 @@
-*
-!./images
-!./images/
+/*
+!/images
 !.gitignore
 !*.py
 !*.md
