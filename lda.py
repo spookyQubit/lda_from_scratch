@@ -1,6 +1,7 @@
 import numpy as np
 import logging
 import matplotlib.pyplot as plt
+import cv2
 
 
 def get_logger():
@@ -153,11 +154,15 @@ class LDA(object):
 
 def save_image(p_topics_v_dist, i):
     t0_data = 256 * np.reshape(p_topics_v_dist[0], (2, 2))
-    plt.imshow(t0_data, 'gray', origin='lower', interpolation='none', vmin=0, vmax=256)
+    fig = plt.imshow(t0_data, 'gray', origin='lower', interpolation='none', vmin=0, vmax=256)
+    fig.axes.get_xaxis().set_visible(False)
+    fig.axes.get_yaxis().set_visible(False)
     plt.savefig('images/' + 'image_iter_' + str(i) + '_id_' + str(0) + '.png')
 
     t1_data = 256 * np.reshape(p_topics_v_dist[1], (2, 2))
-    plt.imshow(t1_data, 'gray', origin='lower', interpolation='none', vmin=0, vmax=256)
+    fig = plt.imshow(t1_data, 'gray', origin='lower', interpolation='none', vmin=0, vmax=256)
+    fig.axes.get_xaxis().set_visible(False)
+    fig.axes.get_yaxis().set_visible(False)
     plt.savefig('images/' + 'image_iter_' + str(i) + '_id_' + str(1) + '.png')
 
 
@@ -182,7 +187,7 @@ def main():
 
     # Hyper parameters
     alpha = 1  # Pseudo counts for topic selection
-    beta = .5  # Pseudo counts for vocab selection given a particular topic
+    beta = 1  # Pseudo counts for vocab selection given a particular topic
 
     lda = LDA(documents=D,
               vocab=V,
@@ -192,21 +197,44 @@ def main():
               beta=beta,
               random_seed=92)
 
+    # Creating images and saving them
+
     p_topics_v_dist = lda.get_vocab_dist_of_topics()
     save_image(p_topics_v_dist, 0)
 
-    total_iterations = 5000
+    total_iterations = 50
     for i in range(1, total_iterations):
         lda.get_topic_for_each_word(iterations=1)
 
         lda.get_topic_dist_of_docs()
         p_topics_v_dist = lda.get_vocab_dist_of_topics()
 
-        if i % 500 == 0:
+        if i % 5 == 0:
             print("i = {}".format(i))
             save_image(p_topics_v_dist, i)
 
+    fig = plt.figure(figsize=(50, 10))
+    number_of_images = 8
+    for i in range(int(number_of_images/2)):
+        print(i)
+        for t_id in range(n_topics):
+            print(t_id)
+            image_file_path = 'images/' + 'image_iter_' + str(5 * i) + '_id_' + str(t_id) + '.png'
+            img = cv2.imread(image_file_path)
+            ax = fig.add_subplot(number_of_images / 2, 2, 2*i + 1 + t_id)
+            ax.set_title("it = {}, id = {}".format(5*i, t_id))
+            ax.grid(False)
+            ax.spines['right'].set_visible(False)
+            ax.spines['top'].set_visible(False)
+            ax.spines['left'].set_visible(False)
+            ax.spines['bottom'].set_visible(False)
+            ax.tick_params(axis='both',
+                           bottom=False, labelbottom=False,
+                           left=False, labelleft=False)
+            ax.imshow(img)
 
+    fig.savefig('./images/topics_v_dist.png')
+    plt.show()
 
 
 if __name__ == "__main__":
