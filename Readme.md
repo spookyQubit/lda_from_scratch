@@ -6,5 +6,7 @@ The major challenge in implementing the model was in trying to rederive the cond
 
 [image1]: ./images/topics_v_dist.png "Topics vocab distribution"
 
+![](./images/topics_v_dist.png =100x20)
+
 ![alt text][image1]  
 
