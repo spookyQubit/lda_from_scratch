@@ -213,7 +213,7 @@ def main():
             print("i = {}".format(i))
             save_image(p_topics_v_dist, i)
 
-    fig = plt.figure(figsize=(50, 10))
+    fig = plt.figure(figsize=(100, 100))
     number_of_images = 8
     for i in range(int(number_of_images/2)):
         print(i)
