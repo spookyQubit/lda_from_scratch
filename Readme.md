@@ -4,7 +4,6 @@ In this project, we implement the Latent Diritchlet Allocation (LDA ) for docume
 
 The major challenge in implementing the model was in trying to rederive the conditional distribution for Gibbs sampling as given in equation 5 of the [paper](http://www.pnas.org/content/101/suppl_1/5228.full.pdf). Reading the tutorials by [Carpenter et al.](https://lingpipe.files.wordpress.com/2010/07/lda3.pdf), [Resnik et al.](https://www.cs.umd.edu/~hardisty/papers/gsfu.pdf) and [Darling](http://u.cs.biu.ac.il/~89-680/darling-lda.pdf) helped me in this process. For my own reference, the derivation can be found in (need to include scan).
 
+![alt text][convergence]
+[convergence]: https://github.com/spookyQubit/lda_from_scratch/blob/master/images/topics_v_dist.png "Logo Title Text 2"
 
-![](./images/topics_v_dist.png =100x20)
-
-img = <src="https://github.com/spookyQubit/lda_from_scratch/blob/master/images/topics_v_dist.png" width="200" height="200" />
