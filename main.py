@@ -33,7 +33,7 @@ def plot_convergence(n_topics):
             image_file_path = 'images/' + 'image_iter_' + str(5 * i) + '_id_' + str(t_id) + '.jpg'
             img = cv2.imread(image_file_path)
             ax = fig.add_subplot(int(number_of_images/n_topics), n_topics, n_topics * i + 1 + t_id)
-            ax.set_title("it = {}, id = {}".format(5 * i, t_id), fontsize=1)
+            ax.set_title("it = {}, id = {}".format(5 * i, t_id), fontsize=20)
             ax.grid(False)
             ax.spines['right'].set_visible(False)
             ax.spines['top'].set_visible(False)
