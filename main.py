@@ -22,7 +22,7 @@ def save_image(p_topics_v_dist, i, n_topics, img_shape):
         fig = plt.imshow(t_data, 'gray', origin='lower', interpolation='none', vmin=0, vmax=256)
         fig.axes.get_xaxis().set_visible(False)
         fig.axes.get_yaxis().set_visible(False)
-        plt.savefig('images/' + 'image_iter_' + str(i) + '_id_' + str(t_id) + '.png')
+        plt.savefig('images/' + 'image_iter_' + str(i) + '_id_' + str(t_id) + '.jpg')
 
 
 def plot_convergence(n_topics):
@@ -30,7 +30,7 @@ def plot_convergence(n_topics):
     number_of_images = 8
     for i in range(int(number_of_images / n_topics)):
         for t_id in range(n_topics):
-            image_file_path = 'images/' + 'image_iter_' + str(5 * i) + '_id_' + str(t_id) + '.png'
+            image_file_path = 'images/' + 'image_iter_' + str(5 * i) + '_id_' + str(t_id) + '.jpg'
             img = cv2.imread(image_file_path)
             ax = fig.add_subplot(int(number_of_images/n_topics), n_topics, n_topics * i + 1 + t_id)
             ax.set_title("it = {}, id = {}".format(5 * i, t_id), fontsize=30)
@@ -44,7 +44,7 @@ def plot_convergence(n_topics):
                            left=False, labelleft=False)
             ax.imshow(img)
 
-    fig.savefig('./images/topics_v_dist.png')
+    fig.savefig('./images/topics_v_dist.jpg')
     plt.show()
 
 
