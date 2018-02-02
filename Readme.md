@@ -18,4 +18,4 @@ We notice that documents d1 and d2 are mde up predominantly of a single vocab: v
 
 ![Convergence image](https://github.com/spookyQubit/lda_from_scratch/blob/master/images/topics_v_dist.jpg)
 
-Each figure above consists of four squares, one square representing the probability of a vocab. Each column corresponds to one topic with each row corresponds to a given number of iterations in Gibbs sampling. One can see that with increasing number of iterations, one topics probability is mostly on v1 and the other topics probability is distributed over v2, v3 and v4.  
+Each figure above consists of four squares, one square representing the probability of a vocab. Each column corresponds to one topic. Each row corresponds to a given number of iterations in the Gibbs sampling algoright. As expected, one can see that with increasing number of iterations, one topics probability is mostly on v1 and the other topics probability is distributed over v2, v3 and v4.  
