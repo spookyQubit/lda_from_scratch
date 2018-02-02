@@ -26,7 +26,7 @@ def save_image(p_topics_v_dist, i, n_topics, img_shape):
 
 
 def plot_convergence(n_topics):
-    fig = plt.figure(figsize=(100, 100))
+    fig = plt.figure(figsize=(10, 10))
     number_of_images = 8
     for i in range(int(number_of_images / n_topics)):
         for t_id in range(n_topics):
